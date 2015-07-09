@@ -1,0 +1,25 @@
+{
+  "name": "clargs",
+  "version": "0.0.1",
+  "description": "An easy way to gather user input for your scripts.",
+  "main": "index.js",
+  "dependencies": {
+    "argify": "0.0.3",
+    "inquirer": "^0.8.5",
+    "q": "^1.4.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.1.0",
+    "gulp-clean": "^0.3.1",
+    "gulp-nodemon": "^2.0.3",
+    "gulp-run": "^1.6.8",
+    "mocha": "^2.2.5",
+    "should": "^6.0.3"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test mocha -R spec"
+  },
+  "author": "Ben Bradley",
+  "license": "MIT"
+}
