@@ -36,4 +36,12 @@ describe('clargs', function () {
       done();
     });
   });
+
+  it('should throw', function (done) {
+    (0, _2['default'])([{ type: 'input', name: 'fail' }]).then(function () {
+      return done('uhoh, didn\'t catch');
+    })['catch'](function (err) {
+      done();
+    });
+  });
 });

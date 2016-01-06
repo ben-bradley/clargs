@@ -1,6 +1,6 @@
 {
   "name": "clargs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "An easy way to gather user input for your scripts.",
   "main": "index.js",
   "dependencies": {

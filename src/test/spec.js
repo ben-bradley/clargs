@@ -31,4 +31,12 @@ describe('clargs', () => {
     	});
   });
 
+  it('should throw', (done) => {
+    clargs([{ type: 'input', name: 'fail' }])
+      .then(() => done('uhoh, didn\'t catch'))
+      .catch((err) => {
+        done();
+      });
+  });
+
 });

@@ -1,13 +1,12 @@
 'use strict';
 
-let args = require('argify'),
-  inquirer = require('inquirer');
+import args from 'argify';
+import inquirer from 'inquirer';
 
-module.exports = function (questions) {
+export default function clargs(questions) {
   return new Promise((resolve, reject) => {
-    questions = questions.filter((a) => {
-      return !args[a.name];
-    });
+    // remove questions answered by args
+    questions = questions.filter((q) => !args[q.name] );
 
     if (!questions.length)
       return resolve(clean(args));
@@ -22,7 +21,7 @@ module.exports = function (questions) {
       reject(err);
     }
   });
-};
+}
 
 function clean(args) {
   for (var a in args) {

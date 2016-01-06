@@ -1,26 +1,39 @@
 'use strict';
 
-var args = require('argify'),
-    inquirer = require('inquirer');
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+exports['default'] = clargs;
 
-module.exports = function (questions) {
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _argify = require('argify');
+
+var _argify2 = _interopRequireDefault(_argify);
+
+var _inquirer = require('inquirer');
+
+var _inquirer2 = _interopRequireDefault(_inquirer);
+
+function clargs(questions) {
   return new Promise(function (resolve, reject) {
-    questions = questions.filter(function (a) {
-      return !args[a.name];
+    // remove questions answered by args
+    questions = questions.filter(function (q) {
+      return !_argify2['default'][q.name];
     });
 
-    if (!questions.length) return resolve(clean(args));
+    if (!questions.length) return resolve(clean(_argify2['default']));
 
     try {
-      inquirer.prompt(questions, function (answers) {
-        for (var a in answers) args[a] = answers[a];
-        resolve(clean(args));
+      _inquirer2['default'].prompt(questions, function (answers) {
+        for (var a in answers) _argify2['default'][a] = answers[a];
+        resolve(clean(_argify2['default']));
       });
     } catch (err) {
       reject(err);
     }
   });
-};
+}
 
 function clean(args) {
   for (var a in args) {
@@ -28,3 +41,4 @@ function clean(args) {
   }
   return args;
 }
+module.exports = exports['default'];
