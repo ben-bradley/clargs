@@ -42,6 +42,7 @@ clargs(questions)
 	});
 ```
 
-## Todo
+## Versions
 
-- Figure out how to test with Inquirer
+- 0.1.0 - Removed `q` dependency, updated deps
+- 0.0.1 - Initial commit

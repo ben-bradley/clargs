@@ -1,10 +1,7 @@
 'use strict';
 
-let q = require('q'),
-  args = require('argify'),
+let args = require('argify'),
   inquirer = require('inquirer');
-
-let Promise = Promise || q.Promise;
 
 module.exports = function (questions) {
   return new Promise((resolve, reject) => {
@@ -15,10 +12,15 @@ module.exports = function (questions) {
     if (!questions.length)
       return resolve(clean(args));
 
-    inquirer.prompt(questions, (answers) => {
-      for (var a in answers) args[a] = answers[a];
-      resolve(clean(args));
-    });
+    try {
+      inquirer.prompt(questions, (answers) => {
+        for (var a in answers) args[a] = answers[a];
+        resolve(clean(args));
+      });
+    }
+    catch (err) {
+      reject(err);
+    }
   });
 };
 
