@@ -1,4 +1,4 @@
-# clargs
+# clargs [![Build Status](https://secure.travis-ci.org/ben-bradley/clargs.png)](http://travis-ci.org/ben-bradley/clargs)
 
 I found myself writing a lot of CLI apps that used `argify` to convert command-line args into values that I could use in code.  This worked well, but I was constantly having to crack open the script source to remind myself which args a particular script expected.
 
